@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="736.0" prefWidth="1226.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="phonebook.FXMLDocumentController">
+   <children>
+      <SplitPane dividerPositions="0.45058626465661644" layoutX="14.0" layoutY="10.0" prefHeight="700.0" prefWidth="1196.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="698.0" prefWidth="673.0">
+               <children>
+                  <HBox layoutX="25.0" layoutY="147.0" prefHeight="439.0" prefWidth="487.0" spacing="10.0">
+                     <children>
+                        <ListView fx:id="abcIndex" prefHeight="473.0" prefWidth="91.0" />
+                        <TableView fx:id="nameTable" prefHeight="473.0" prefWidth="384.0">
+                          <columns>
+                            <TableColumn fx:id="nameColumn" editable="false" prefWidth="383.0" text="Name" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </HBox>
+                  <Button fx:id="addButton" layoutX="221.0" layoutY="628.0" mnemonicParsing="false" onAction="#addButtonPushed" text="Add" />
+                  <Button fx:id="deleteButton" layoutX="303.0" layoutY="628.0" mnemonicParsing="false" onAction="#deleteButtonPushed" text="Delete" />
+                  <HBox layoutX="25.0" layoutY="51.0" prefHeight="60.0" prefWidth="333.0" spacing="10.0">
+                     <children>
+                        <Label text="Search:">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="searchTextField" />
+                        <Button fx:id="findButton" mnemonicParsing="false" onAction="#findButtonPushed" text="Find" />
+                     </children>
+                  </HBox>
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="668.0" prefWidth="494.0">
+               <children>
+                  <Label layoutX="212.0" layoutY="47.0" text="Phonebook FX">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <VBox layoutX="11.0" layoutY="146.0" prefHeight="473.0" prefWidth="627.0">
+                     <children>
+                        <Accordion prefHeight="439.0" prefWidth="627.0">
+                          <panes>
+                            <TitledPane fx:id="accordianView" animated="false" text="Name">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox alignment="TOP_RIGHT" layoutX="6.0" layoutY="22.0" prefHeight="199.0" prefWidth="126.0" spacing="25.0" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="15.0">
+                                             <children>
+                                                <Label text="First Name:" />
+                                                <Label prefHeight="21.0" prefWidth="106.0" text="Middle Name:" />
+                                                <Label text="Last Name:" />
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="134.0" layoutY="39.0" prefHeight="151.0" prefWidth="461.0" spacing="15.0" AnchorPane.bottomAnchor="136.0" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="10.0">
+                                             <children>
+                                                <TextField fx:id="firstNameTextField" editable="false" />
+                                                <TextField fx:id="middleNameTextField" editable="false" />
+                                                <TextField fx:id="lastNameTextField" editable="false" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                            <TitledPane animated="false" text="Phone">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox alignment="TOP_RIGHT" layoutX="34.0" layoutY="27.0" prefHeight="170.0" prefWidth="51.0" spacing="25.0" AnchorPane.topAnchor="20.0">
+                                             <children>
+                                                <Label text="Home:" />
+                                                <Label text="Mobile:" />
+                                                <Label text="Work:" />
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="129.0" layoutY="27.0" prefHeight="191.0" prefWidth="461.0" spacing="15.0" AnchorPane.rightAnchor="30.0">
+                                             <children>
+                                                <TextField fx:id="homePhoneTextField" editable="false" />
+                                                <TextField fx:id="mobilePhoneTextField" editable="false" />
+                                                <TextField fx:id="workPhoneTextField" editable="false" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                            <TitledPane animated="false" text="Address">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox alignment="TOP_RIGHT" layoutX="32.0" layoutY="23.0" prefHeight="237.0" prefWidth="64.0" spacing="25.0">
+                                             <children>
+                                                <Label text="Country:" />
+                                                <Label text="State:" />
+                                                <Label text="City:" />
+                                                <Label text="Zip Code:" />
+                                                <Label text="Address:" />
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="136.0" layoutY="17.0" prefHeight="245.0" prefWidth="415.0" spacing="15.0" AnchorPane.rightAnchor="30.0">
+                                             <children>
+                                                <TextField fx:id="countryTextField" editable="false" />
+                                                <TextField fx:id="stateTextField" editable="false" />
+                                                <TextField fx:id="cityTextField" editable="false" />
+                                                <TextField fx:id="zipCodeTextField" editable="false" />
+                                                <TextField fx:id="addressTextField" editable="false" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                              <TitledPane animated="false" text="Email">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox alignment="TOP_RIGHT" layoutX="29.0" layoutY="34.0" prefHeight="170.0" prefWidth="61.0" spacing="25.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+                                             <children>
+                                                <Label text="Personal:" />
+                                                <Label text="Work:" />
+                                                <Label text="School:" />
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="136.0" layoutY="17.0" prefHeight="191.0" prefWidth="461.0" spacing="15.0" AnchorPane.rightAnchor="30.0">
+                                             <children>
+                                                <TextField fx:id="personalEmailTextField" editable="false" />
+                                                <TextField fx:id="workEmailTextField" editable="false" />
+                                                <TextField fx:id="schoolEmailTextField" editable="false" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </TitledPane>
+                          </panes>
+                        </Accordion>
+                     </children>
+                  </VBox>
+                  <Button fx:id="okButton" disable="true" layoutX="304.0" layoutY="634.0" mnemonicParsing="false" onAction="#okButtonPushed" text="OK" />
+                  <Button fx:id="cancelButton" disable="true" layoutX="366.0" layoutY="634.0" mnemonicParsing="false" onAction="#cancelButtonPushed" text="Cancel" />
+                  <Button fx:id="editButton" layoutX="236.0" layoutY="634.0" mnemonicParsing="false" onAction="#editButtonPushed" text="Edit" />
+                  <Button fx:id="saveButton" layoutX="525.0" layoutY="49.0" mnemonicParsing="false" onAction="#saveButtonPushed" text="Save" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

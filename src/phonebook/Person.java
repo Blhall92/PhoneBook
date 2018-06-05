@@ -15,7 +15,8 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class Person implements Comparable<Person> {
     private SimpleStringProperty firstName, middleName, lastName, homePhone, mobilePhone, workPhone,
-            country, state, city, zipCode, address, personalEmail, workEmail, schoolEmail, birthday, key;
+            country, state, city, zipCode, address, personalEmail, workEmail, schoolEmail, birthday, key,
+            firstAndLast;
     
     public Person(String firstName, String middleName, String lastName, String homePhone, String mobilePhone,
     String workPhone, String country, String state, String city, String zipCode, String address,
@@ -35,6 +36,11 @@ public class Person implements Comparable<Person> {
         this.workEmail = new SimpleStringProperty(workEmail);
         this.schoolEmail = new SimpleStringProperty(schoolEmail);
         this.key = new SimpleStringProperty(key);
+        this.firstAndLast = new SimpleStringProperty(lastName + ", " + firstName);
+    }
+
+    public String getFirstAndLast() {
+        return firstAndLast.get();
     }
 
     public String getFirstName() {

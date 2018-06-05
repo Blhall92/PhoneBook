@@ -94,7 +94,7 @@ public class FXMLAddContactController implements Initializable {
     
     @FXML
     private void handleOkButtonAction(ActionEvent event) {       
-        String[] values = new String[14];
+        String[] values = new String[15];
         values[0] = firstNameText.getText();
         values[1] = middleNameText.getText();
         values[2] = lastNameText.getText();

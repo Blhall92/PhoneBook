@@ -47,7 +47,7 @@ public class WriterAndReader {
             personalEmail = sc.nextLine();
             workEmail = sc.nextLine();
             schoolEmail = sc.nextLine();
-            key = sc2.nextLine();
+            key = sc.nextLine();
             list.add(new Person(firstName, middleName, lastName, homePhone, mobilePhone,
             workPhone, country, state, city, zipCode, address, personalEmail, workEmail, schoolEmail, key));
         }
@@ -63,7 +63,6 @@ public class WriterAndReader {
         Scanner kb = new Scanner(System.in);
         
         PrintWriter writer = new PrintWriter("Contacts.txt");
-        PrintWriter writer2 = new PrintWriter("ContactKeys.txt");
         
         for (int i = 0; i < list.size(); i++) {
             writer.println(list.get(i).getFirstName());
@@ -80,31 +79,31 @@ public class WriterAndReader {
             writer.println(list.get(i).getPersonalEmail());
             writer.println(list.get(i).getWorkEmail());
             writer.println(list.get(i).getSchoolEmail());
-            writer2.println(list.get(i).getKey());
+            writer.println(list.get(i).getKey());
         }
 
             writer.close();
-            writer2.close();
         
     }
     
-    public static int readNewKey() throws FileNotFoundException{
-        
-        
+    /**
+     * This method opens the Contact Key file and reads a new unique key.
+     * @return
+     * @throws FileNotFoundException 
+     */
+    public static String readNewKey() throws FileNotFoundException{ //TODO!
         File file = new File("ContactKeys.txt");
-        PrintWriter keyFile = new PrintWriter("ContactKeys.txt");
+        
         Scanner reader = new Scanner(file);
-        
-        
         int key = reader.nextInt();
         key++;
-        
-        keyFile.println(key);
-        
-        keyFile.close();
         reader.close();
         
-        return key;
+        PrintWriter keyFile = new PrintWriter("ContactKeys.txt");
+        keyFile.println(key);
+        keyFile.close();
+        
+        return Integer.toString(key);
         
         
     }

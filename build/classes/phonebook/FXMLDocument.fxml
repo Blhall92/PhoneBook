@@ -58,7 +58,7 @@
                                           <VBox alignment="TOP_RIGHT" layoutX="6.0" layoutY="22.0" prefHeight="199.0" prefWidth="126.0" spacing="25.0" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="15.0">
                                              <children>
                                                 <Label text="First Name:" />
-                                                <Label prefHeight="21.0" prefWidth="106.0" text="Middle Name:" />
+                                                <Label text="Middle Name:" />
                                                 <Label text="Last Name:" />
                                              </children>
                                           </VBox>

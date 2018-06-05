@@ -85,6 +85,15 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        try{
+            persons = readPersonInfo();
+        }
+        catch(FileNotFoundException e){
+            e.getCause();
+            System.out.println("Something went wrong in the initialize method");
+        }
+        
         initListView();
         initTableView();
 
@@ -94,6 +103,8 @@ public class FXMLDocumentController implements Initializable {
         editButton.setDisable(false);
         okButton.setDisable(true);
         cancelButton.setDisable(true);
+        
+        
         
 
     }    
@@ -191,10 +202,10 @@ public class FXMLDocumentController implements Initializable {
         Optional<String[]> result = addContactController.getResponse();
         if (result.isPresent()){
             String[] data = result.get();   // Get the value wrapped by the Optional object
+            
                         
             Person p = new Person(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],
-                                    data[12],data[13], Integer.toString(readNewKey()));
-            maxInt++;
+                                    data[12],data[13], readNewKey()); //this is not the problem
             persons.add(p);
             nameTable.getItems().add(p);
             
@@ -316,7 +327,7 @@ public class FXMLDocumentController implements Initializable {
     //Brian Hall
     private void initTableView(){
         // Set Name Table
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("firstName"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("firstAndLast"));
         nameTable.setEditable(true);
         nameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         nameTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
